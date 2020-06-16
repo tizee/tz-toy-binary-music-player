@@ -1,0 +1,12 @@
+# config
+node_modules
+# output
+dist
+.cache
+build
+# yarn
+yarn.*
+# test
+coverage
+# OSX
+.DS_Store

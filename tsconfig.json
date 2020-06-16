@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "inlineSourceMap": false,
+    "noImplicitAny": true,
+    "lib": ["ESNext", "ES6", "ES7", "DOM"],
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react",
+    "allowJs": true,
+    "alwaysStrict": true,
+    "declaration": true,
+    "rootDir": "src",
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "src/__tests__/**/*"]
+}

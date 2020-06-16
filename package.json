@@ -1,0 +1,53 @@
+{
+  "name": "ts-react-boilerplate",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "tizee",
+  "private": true,
+  "scripts": {
+    "ts-check": "tsc --noEmit",
+    "ts-check:watch": "tsc --noEmit --watch",
+    "lint": "eslint src",
+    "format": "prettier src/**/*.{ts,tsx} --write",
+    "build:types": "tsc --emitDelcarationOnly",
+    "build:dev": "cross-env ENV=development webpack --config webpack.dev.js",
+    "build:prod": "cross-env ENV=production webpack --config webpack.prod.js",
+    "dev": "cross-env ENV=development webpack-dev-server --config webpack.dev.js --hot --open --mode development"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
+    "@types/enzyme": "^3.10.5",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.21",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.9",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "enzyme": "^3.11.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-jest": "^23.13.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.0.1",
+    "prettier": "^2.0.5",
+    "react-redux": "^7.2.0",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
