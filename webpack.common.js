@@ -16,6 +16,17 @@ module.exports = {
         use: "ts-loader",
         exclude: /node_modules/,
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        loader: "url-loader",
+        options: {
+          limit: 8192,
+        },
+      },
     ],
   },
   plugins: [
@@ -28,36 +39,7 @@ module.exports = {
     }),
   ],
   output: {
-    filename: "[name]-[hash:8].js",
+    filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
   },
-  externarls: {},
 };
-
-// module.exports = {
-//   mode: "production",
-//   devtool: "source-map",
-//   resolve: {
-//     extensions: [".ts", ".tsx"],
-//   },
-
-//   module: {
-//     rules: [
-//       {
-//         test: /\.ts(x?)$/,
-//         exclude: /node_modules/,
-//         use: [
-//           {
-//             loader: "ts-loader",
-//           },
-//         ],
-//       },
-//       {
-//         enforce: "pre",
-//         test: /\.ts(x?)$/,
-//         exclude: /node_modules/,
-//         loader: "source-map-loader",
-//       },
-//     ],
-//   },
-// };
