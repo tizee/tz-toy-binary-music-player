@@ -1,0 +1,98 @@
+$size: 16px;
+$keyboard-width: 90vw;
+$border-width: $keyboard-width * 0.0001;
+$keyboard-height: 150px;
+$whitekey-count: 12;
+$whitekey-width: $keyboard-width / $whitekey-count;
+$whitekey-height: $keyboard-height;
+$blackkey-width: $whitekey-width * 0.5;
+$blackkey-height: $whitekey-width * 0.5;
+$blackkey-offset: ((-($blackkey-width / 2)) - $border-width);
+
+$bg-color: lightcyan;
+$key-border-color: #222;
+$whitekey-color: white;
+$blackkey-color: black;
+$hover-color: lightgrey;
+$radius-size: 4px;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    background: $bg-color;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: $size;
+    min-height: 100%;
+    height: 100%;
+}
+
+#app {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.display-wrapper {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-wrapper {
+    flex: 1 0 60px;
+}
+
+.keyboard-wrapper {
+    display: flex;
+    height: 100%;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.keyboard {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    &-note {
+        position: relative;
+        float: left;
+        &.black {
+            width: $blackkey-width;
+            height: $blackkey-height;
+            // margin: 0 0 0 $blackkey-offset;
+            z-index: 2;
+            background: $blackkey-color;
+        }
+        &.white {
+            height: $whitekey-height;
+            width: $whitekey-width;
+            z-index: 1;
+            background: $whitekey-color;
+        }
+        list-style: none;
+        border-bottom: 1px solid $key-border-color;
+        border-left: 1px solid $key-border-color;
+        &:hover {
+            background-color: $hover-color;
+        }
+    }
+}

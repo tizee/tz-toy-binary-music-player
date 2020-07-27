@@ -1,0 +1,19 @@
+$borderSize: 2px;
+$borderRadius: 6px;
+.binary-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    font-family: monospace;
+    flex: 2 0 50px;
+}
+.binary {
+    font-size: 56px;
+    .num {
+        border: $borderSize solid rgb(0, 0, 0);
+        border-radius: $borderRadius;
+        padding: 3px 15px;
+    }
+}

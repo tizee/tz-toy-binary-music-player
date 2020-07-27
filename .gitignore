@@ -6,7 +6,11 @@ dist
 build
 # yarn
 yarn.*
+yarn-error.log
+
 # test
 coverage
 # OSX
 .DS_Store
+# history
+.history

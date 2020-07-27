@@ -1,0 +1,45 @@
+$btn-height: 60px;
+$btn-width: $btn-height * 1.6;
+$toggle-on-color: rgb(63, 195, 247);
+$toggle-off-color: rgb(126, 126, 126);
+$border-color: rgb(43, 38, 38);
+$radius: 18px;
+$padding-size: 3px;
+$circle-radius: $btn-height * 0.7;
+$margin-size: 10px;
+$border-size: 3px;
+
+.tz-toggle-wrapper {
+    position: relative;
+    padding: $padding-size;
+    width: $btn-width;
+    height: $btn-height;
+    cursor: pointer;
+    &.off {
+        .tz-circle {
+            background-color: $toggle-off-color;
+            transform: translateX(
+                $btn-width - ($padding-size + ($circle-radius / 2) + 4px + 3px) *
+                    2
+            );
+        }
+    }
+    .tz-slide-bar {
+        background-color: #fff;
+        position: relative;
+        border: $border-size solid $border-color;
+        border-radius: $circle-radius;
+        height: 100%;
+    }
+    .tz-circle {
+        position: absolute;
+        height: $circle-radius;
+        width: $circle-radius;
+        border: $border-size solid $border-color;
+        background-color: $toggle-on-color;
+        border-radius: 50%;
+        transition: all 0.2s ease-in;
+        left: 4px;
+        top: 3px;
+    }
+}

@@ -1,8 +1,8 @@
 {
-    "semi": true,
-    "arrowParens": "avoid",
-    "jsxSingleQuote": true,
-    "jsxBracketSameLine": true,
-    "tabWidth": 2,
-    "endOfLine": "lf"
+  "semi": true,
+  "arrowParens": "avoid",
+  "jsxSingleQuote": true,
+  "jsxBracketSameLine": true,
+  "tabWidth": 4,
+  "endOfLine": "lf"
 }
