@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import * as Tone from "tone";
-import { notes } from "../utils/notes";
+import { osc } from "../synth";
+import { notes } from "../note";
+import "./index.scss";
+// signleton
 
 const RCSynth: React.FC = () => {
-    const osc = new Tone.Synth({
-        oscillator: {
-            partials: [0, 2, 3, 4],
-        },
-    }).toDestination();
     const [mouseDown, set] = useState(false);
     const playNote = (note: string) => {
         osc.triggerAttack(note, undefined, 1);

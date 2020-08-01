@@ -1,40 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 
-import BinaryDisplay from "./components/binary";
+import BinaryPlayer from "./components/binary";
 import ToggleBtn from "./components/toggle";
+const defaultNotes = [
+    "G4#",
+    "D4#",
+    "D4",
+    "C4",
+    "E4",
+    "A4#",
+    "C4#",
+    "F4",
+    "C5",
+    "D5",
+];
+const defaultTimes = [1.6, 1.5, 1.3, 1.2, 0.9, 0.7, 0.6, 0.5, 0.4, 0.3];
 
 const App = () => {
-    const [num, set] = useState(0);
-    const [on, toggle] = useState(true);
-    useEffect(() => {
-        let id: any;
-        if (on) {
-            id = setInterval(() => {
-                if (num < 1024) {
-                    set(num => num + 1);
-                } else {
-                    set(0);
-                }
-            }, 300);
-        }
-        return () => {
-            if (id) {
-                clearInterval(id);
-            }
-        };
-    }, [on]);
+    const [notes, setNotes] = useState(defaultNotes);
+    const [on, toggle] = useState(false);
     return (
         <div className='container'>
             <div className='display-wrapper'>
-                <BinaryDisplay num={num} />
+                <BinaryPlayer notes={notes} isPlay={on} times={defaultTimes} />
+                <div className='notes-wrapper'>
+                    {notes.map(el => (
+                        <span className='note' key={el}>
+                            {el}
+                        </span>
+                    ))}
+                </div>
                 <div className='btn-wrapper'>
                     <ToggleBtn
                         open={on}
                         onClose={() => {
                             toggle(false);
-                            set(0);
                         }}
                         onOpen={() => {
                             toggle(true);
