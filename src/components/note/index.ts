@@ -8,11 +8,9 @@ pitch_names.forEach((el, idx) => {
  * half step: E and F, B and C
  */
 const nextNote = (note: string): string => {
-    if (note.startsWith("E") || note.startsWith("B")) {
+    if (note.startsWith("E")) {
         if (note.startsWith("E")) {
             return note.replace("E", "F");
-        } else {
-            return note.replace("B", "C");
         }
     }
     const tokens = note.split("#");
@@ -33,9 +31,9 @@ const nextNote = (note: string): string => {
     return pitchName + "#" + pitch;
 };
 
-const notes = ["C3"];
+const notes = ["C4"];
 
-while (notes.length < 21) {
+while (notes.length <= 21) {
     const next = nextNote(notes[notes.length - 1]);
     notes.push(next);
 }

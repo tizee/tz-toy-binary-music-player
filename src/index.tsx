@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 
 import BinaryPlayer from "./components/binary";
+import Keyboard from "./components/keyboard";
 import ToggleBtn from "./components/toggle";
 const defaultNotes = [
     "G4#",
@@ -26,12 +27,24 @@ const App = () => {
             <div className='display-wrapper'>
                 <BinaryPlayer notes={notes} isPlay={on} times={defaultTimes} />
                 <div className='notes-wrapper'>
-                    {notes.map(el => (
-                        <span className='note' key={el}>
+                    {notes.map((el, idx) => (
+                        <span className='note' key={el + idx}>
                             {el}
                         </span>
                     ))}
                 </div>
+                <Keyboard
+                    totalNum={defaultNotes.length}
+                    changeNote={(note: string, idx: number) => {
+                        // stop playing
+                        toggle(false);
+                        setNotes(notes => {
+                            let newNotes = [...notes];
+                            newNotes[idx] = note;
+                            return newNotes;
+                        });
+                    }}
+                />
                 <div className='btn-wrapper'>
                     <ToggleBtn
                         open={on}

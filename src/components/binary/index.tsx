@@ -27,7 +27,7 @@ const BinaryPlayer: React.FC<PlayerProps> = ({ notes, isPlay, times }) => {
     }, []);
 
     useEffect(() => {
-        Tone.Transport.scheduleRepeat(function (time: number) {
+        let id = Tone.Transport.scheduleRepeat(function (time: number) {
             setNum(num => {
                 if (num < 1024) {
                     let preBits = padStart(num.toString(2), pad).split("");
@@ -38,6 +38,7 @@ const BinaryPlayer: React.FC<PlayerProps> = ({ notes, isPlay, times }) => {
                             preBits[index] !== bits[index]
                         ) {
                             // bit flip from 0 to 1
+                            console.log(notes[index], index);
                             oscRef.current.triggerAttackRelease(
                                 notes[index],
                                 times[index],
@@ -51,7 +52,12 @@ const BinaryPlayer: React.FC<PlayerProps> = ({ notes, isPlay, times }) => {
                 }
             });
         }, "32i");
-    }, []);
+        return () => {
+            console.log("clear schedule events", id);
+            Tone.Transport.clear(id);
+            Tone.Transport.cancel(0);
+        };
+    }, [notes]);
 
     useEffect(() => {
         if (isPlay) {
